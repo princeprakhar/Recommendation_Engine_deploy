@@ -1,5 +1,4 @@
 import os
-
 import streamlit as st
 import pandas as pd
 import pickle
@@ -66,8 +65,7 @@ dataframe = pd.read_csv('dataframe_movies.csv')
 list_of_movies = dataframe['title']
 movie = st.selectbox("Select the movie:", dataframe['title'])
 
-# similarity = pickle.load(open(r"../jupyter_file/similarity.pkl", "rb"))
-similarity = os.path.join(os.getcwd(), "jupyter_file", "similarity.pkl")
+similarity = pickle.load(open(r"similarity.pkl", "rb"))
 
 if st.button("Recommend Movie"):
     st.write("Selected movie")
